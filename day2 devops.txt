@@ -1,0 +1,286 @@
+git status 
+this command gives the status.
+if you have created/modified/changed/deleted/updated then it will
+show the file name in red/green color
+if the files are up to date then it shows files are up to dat
+
+github student pack and git academy are useful to practice git commands
+
+rm -r directoryname
+rm -rf directoryname(forcefully delete)
+
+add commands adds file from local to staging directory
+
+in case if you added unwanted code at staging then you can restore 
+by coming to working directory
+
+git log 
+------shows the history
+git log --oneline
+------shows logs in singleline
+---------------------------
+gitignore
+it is used to add files which are not need to be tracked
+ex:node packages,personal files etc
+
+To stage &commit once 
+git commit -a- m "updated .gitignore"
+
+
+in gitignore add the file named day1 and give the comand
+git commit -a- m "updated .gitignore"
+then you can see the ther is nothing to update
+
+create another file day2 and do not add it in .gitignore then 
+normally you can see that the file is being traced
+
+
+----------------
+go to visual studio code
+click on clone a repository--provide link to go to ur repository
+select folder
+create .gitignore file
+create some files and work with git commands
+-----------
+use the restore to get back the file from staging
+git restore --staged
+
+-----------
+mv file file2
+-------rename the file
+git checkout filename
+------------
+amend
+
+amend command will add the changes to the previous commit
+for minor changes we can use ammend command
+----------
+reset
+it pushes back to your previous commit
+
+rebase uses the concept of branches
+
+----------
+git branch --list
+---------------------------
+
+
+
+
+
+
+
+
+
+
+devops is a practice of how things done
+under devops you have many implementations and practices
+CI/CD you continuosly develop code and integrate it
+automation is a part of deployment process,humans cannot be there all time to
+continuosly develop so some general pipeline is set
+monitoring--whatever modifications you made
+logging--shows the previous history
+communication--key concept,there was a communication gap b.w s;w developers and it 
+communication team this delay 
+microservices--divide code into smaller bits ,you have teams and you segeregate task
+change the culture--people started thinking in a different manner,not like waterfall model and all
+
+-------------
+VERSION CONTROL
+maintaing snap shots,screen shots for tracking the activities
+most familar example is github
+maintaing/tracking the changes 
+Git is version control system
+github is internet hosted service.
+github is an open source repository,you can have public and private repositories
+
+staging exists,because sometimes you do not want all the files to be committed
+example
+you have two files 
+but you were not sure that one file is completed
+so you put aside called staging
+but if you do not have staging then YOU SHOULD COMMIT directly
+-------------
+.gitignore ignores the files which are mentioned in it.
+
+create a file TestRun.py
+git clean 
+removes the untracked files
+git clean -n
+---warning ---it tells what files to be removed
+git clean -f 
+--it will remove forcefully
+git clean -nd
+---gives warnng to remove untracked directories
+git clean -df
+--removes untracked directories
+git log --oneline
+----gives the 
+git log --max-count 5 --oneline
+---shows the top 5 commits
+git log --author="Mirza" --oneline
+--filters based on author
+git log --grep "Add" --oneline
+filter the commits having add as commit mesaage
+useful in long records/logs
+---------
+reset is a commit level operation
+restore is staging level & working level operation
+
+why commit messages are necessary"
+
+git commit -a 
+---used to commit directly
+commits are used for tracking purposes
+if you do not give commit message then the commiting will be aborted
+
+---------
+
+git reset commitId
+1)git log --oneline
+--it is used for checking log
+you will be in some commitid
+and you want to shift to other
+so give git reset commitid
+-----
+now the previous commit id will not appear in git log --oneline
+so how to get that?
+
+when you do restore
+then file comes from staging to working but stikll tracked
+
+to delete the untacked files
+use the below commands
+1)git clean -nf
+2)git rm -rf
+----------
+git restore . will work on tracked files only.
+
+GIT Stash
+keeping files aside
+it can be any directory
+Stash uses stack data structire
+maintains file snapshots
+git tracks file snapshots--at particular instance only not the files
+
+after writing any text
+git stash ---to push
+git stash list
+
+git stash push -m "third stash"
+--to set the message
+
+git stash apply --index 1
+----to access
+
+git stash list
+
+git stash clear will clear all the slashes
+
+git stash push -m "untacked files"
+---this command do not stash
+
+git stash show --index 0
+
+apply will get ur stash changes but do not delete
+pop will get the changes and removes also
+
+git stash pop --index 1
+-------
+
+git stash clear
+---everything will be cleared
+if youdont want this the
+git restore .
+stash stores the instance at particular instance
+
+------------
+stashing completely removes code
+staging donot remove completely
+
+tags
+tags is used for minor tracking
+
+1)git tag -l
+gives list of tags
+2)two types of tags are there
+lightweight tag--for ur reference,does not store anything additionally
+
+annotated tag--much bigger approach
+git tag do not have considered previous commit
+
+3)creating tag
+git tag v1
+here as you didint mention commit id tag is created to first commit
+4)annotated tag
+git tag v2 -a -m "version2"
+5)applying tag to particular commit
+git tag v2 -a -m "version2" commitid
+it gives an error because v2 already exists
+tag message do not overrride commit message
+
+what is the use of -a ?
+it represents that tag is annotated tag
+6)git tag -d tagname
+to delete the tag
+7)git tag lightweight
+to create a light weight tag
+8)git tag lightweight previous commitid
+you can apply multiple tags to single commit,vice versa is not possible
+9)git show lightweight
+
+can you access particular commit by tag?
+git log tagname
+10)git show tagname
+11)git show annotatedtag
+shows tagger and date also whereas lightweight tag do not
+
+where tags are stored?
+ .git/refs/tags
+12)
+git show tagname
+git show commitid
+both gives same output
+
+13)CAN WE CHANGE LIGHTWEIGHTED TAG TO ANNOTATED TAG
+once a tag is created,you cannot modify it
+you can force create a new tag on top of old tag
+
+GIT Revert
+
+HEAD is pointing to first commit
+1)git revert 
+revert pushes the HEAD back to the previous commit
+merge conflict occurs when the same thing is changed by many authors a
+merging conflicts should be resolved by you
+not by computer
+when you want to revert a commit,it doesnot go back
+it will create a new commit 
+
+2)git reset
+head will move the head to particular commit
+
+3)git checkout
+you can go backwards in time,create and modify changes
+
+git log --all
+shows all commits
+in revert commits are not deleted but they are hidden
+
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys
+
+There are three Git file states:
+
+Committed: The version of the file saved in the.git directory.
+Modified: The file has changed but has not been committed to the repository.
+Staged: The modified file is ready to be committed to the repository.
+
+when you define locally,it always takes from the local
+
+you can have merge conflicts if you use reset
+
+
+
+
+
